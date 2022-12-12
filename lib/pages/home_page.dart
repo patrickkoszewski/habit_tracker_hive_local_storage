@@ -10,6 +10,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //bool to control habit completed
+  bool habitCompleted = false;
+
+  //checkbox was tapped method
+
+  void checkBoxTapped(bool? value) {
+    setState(() {
+      habitCompleted = value!;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +30,8 @@ class _HomePageState extends State<HomePage> {
             //habit tiles
             HabitTile(
               habitName: 'Nauka Fluttera',
-              habitCompleted: false,
+              habitCompleted: habitCompleted,
+              onChanged: (value) => checkBoxTapped(value),
             ),
           ],
         ));

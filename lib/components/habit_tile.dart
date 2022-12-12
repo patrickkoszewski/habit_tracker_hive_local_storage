@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class HabitTile extends StatelessWidget {
   final String habitName;
   final bool habitCompleted;
+  final Function(bool?)? onChanged;
 
   const HabitTile({
     super.key,
     required this.habitName,
     required this.habitCompleted,
+    required this.onChanged,
   });
 
   @override
@@ -24,7 +26,7 @@ class HabitTile extends StatelessWidget {
           children: [
             Checkbox(
               value: habitCompleted,
-              onChanged: ((value) {}),
+              onChanged: onChanged,
             ),
             Text(
               habitName,
