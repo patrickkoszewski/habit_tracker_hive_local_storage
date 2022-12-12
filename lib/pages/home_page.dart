@@ -17,7 +17,10 @@ class _HomePageState extends State<HomePage> {
         body: ListView(
           children: [
             //habit tiles
-            HabitTile(),
+            HabitTile(
+              habitName: 'Nauka Fluttera',
+              habitCompleted: false,
+            ),
           ],
         ));
   }

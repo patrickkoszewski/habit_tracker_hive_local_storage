@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class HabitTile extends StatelessWidget {
-  const HabitTile({super.key});
+  final String habitName;
+  final bool habitCompleted;
+
+  const HabitTile({
+    super.key,
+    required this.habitName,
+    required this.habitCompleted,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +22,14 @@ class HabitTile extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(Icons.check_box_outline_blank),
-            SizedBox(
-              width: 16,
+            Checkbox(
+              value: habitCompleted,
+              onChanged: ((value) {}),
             ),
-            Text('Poranny Jogging'),
+            Text(
+              habitName,
+              style: TextStyle(fontSize: 16),
+            ),
           ],
         ),
       ),
