@@ -17,14 +17,11 @@ class _HomePageState extends State<HomePage> {
     ['Czytanie Książki', false],
   ];
 
-  //bool to control habit completed
-  bool habitCompleted = false;
-
   //checkbox was tapped method
 
-  void checkBoxTapped(bool? value) {
+  void checkBoxTapped(bool? value, int index) {
     setState(() {
-      habitCompleted = value!;
+      todaysHabitList[index][1] = value;
     });
   }
 
@@ -32,15 +29,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      body: ListView(
-        children: [
-          //habit tiles
-          HabitTile(
-            habitName: 'Nauka Fluttera',
-            habitCompleted: habitCompleted,
-            onChanged: (value) => checkBoxTapped(value),
-          ),
-        ],
+      body: ListView.builder(
+        itemCount: todaysHabitList.length,
+        itemBuilder: (context, index) {
+          return HabitTile(
+            habitName: todaysHabitList[index][0],
+            habitCompleted: todaysHabitList[index][1],
+            onChanged: (value) => checkBoxTapped(value, index),
+          );
+        },
       ),
     );
   }
