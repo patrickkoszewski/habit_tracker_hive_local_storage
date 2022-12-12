@@ -10,6 +10,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //data structure for todays list
+  List todaysHabitList = [
+    //[habitName, habitCompleted]
+    ['Nauka Fluttera', false],
+    ['Czytanie Książki', false],
+  ];
+
   //bool to control habit completed
   bool habitCompleted = false;
 
@@ -24,16 +31,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[300],
-        body: ListView(
-          children: [
-            //habit tiles
-            HabitTile(
-              habitName: 'Nauka Fluttera',
-              habitCompleted: habitCompleted,
-              onChanged: (value) => checkBoxTapped(value),
-            ),
-          ],
-        ));
+      backgroundColor: Colors.grey[300],
+      body: ListView(
+        children: [
+          //habit tiles
+          HabitTile(
+            habitName: 'Nauka Fluttera',
+            habitCompleted: habitCompleted,
+            onChanged: (value) => checkBoxTapped(value),
+          ),
+        ],
+      ),
+    );
   }
 }
