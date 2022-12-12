@@ -6,7 +6,16 @@ class EnterNewHabitBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: TextField(),
+      backgroundColor: Colors.grey[900],
+      content: TextField(
+        style: TextStyle(color: Colors.white),
+        decoration: InputDecoration(
+          enabledBorder:
+              OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+          focusedBorder:
+              OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+        ),
+      ),
       actions: [
         MaterialButton(
           onPressed: () {},
