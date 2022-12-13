@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class HabitTile extends StatelessWidget {
   final String habitName;
@@ -16,23 +17,37 @@ class HabitTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Container(
-        padding: const EdgeInsets.all(24),
-        decoration: BoxDecoration(
-          color: Colors.grey[100],
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Row(
+      child: Slidable(
+        endActionPane: ActionPane(
+          motion: StretchMotion(),
           children: [
-            Checkbox(
-              value: habitCompleted,
-              onChanged: onChanged,
-            ),
-            Text(
-              habitName,
-              style: TextStyle(fontSize: 16),
-            ),
+            //settings option
+            SlidableAction(
+              onPressed: (context) {},
+              backgroundColor: Colors.grey.shade800,
+              icon: Icons.settings,
+            )
+            //delete option
           ],
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Row(
+            children: [
+              Checkbox(
+                value: habitCompleted,
+                onChanged: onChanged,
+              ),
+              Text(
+                habitName,
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
         ),
       ),
     );
