@@ -41,6 +41,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       db.todaysHabitList[index][1] = value;
     });
+    db.upadateDatabase();
   }
 
   //create a new habit
@@ -70,6 +71,7 @@ class _HomePageState extends State<HomePage> {
     _newHabitNameController.clear(); //celar cache for typed in text
     //pop dialog box
     Navigator.of(context).pop();
+    db.upadateDatabase();
   }
 
   //cancel new habit
@@ -102,6 +104,7 @@ class _HomePageState extends State<HomePage> {
     });
     _newHabitNameController.clear();
     Navigator.pop(context);
+    db.upadateDatabase();
   }
 
   //delete habit
@@ -109,6 +112,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       db.todaysHabitList.removeAt(index);
     });
+    db.upadateDatabase();
   }
 
   @override
