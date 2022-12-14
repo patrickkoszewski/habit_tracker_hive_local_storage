@@ -7,7 +7,12 @@ class HabitDatabase {
   List todaysHabitList = [];
 
   //create initial default data
-  void createDefaultData() {}
+  void createDefaultData() {
+    todaysHabitList = [
+      ['Bieganie', false],
+      ['Kodowanie', false],
+    ];
+  }
 
   //load data if it already exists
   void loadData() {}
