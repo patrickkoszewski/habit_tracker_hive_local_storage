@@ -29,7 +29,7 @@ String todaysDateFormatted() {
 DateTime createDateTimeObject(String yyyymmdd) {
   int yyyy = int.parse(yyyymmdd.substring(0, 4));
   int mm = int.parse(yyyymmdd.substring(4, 6));
-  int dd = int.parse(yyyymmdd.substring(6, 9));
+  int dd = int.parse(yyyymmdd.substring(6, 8));
 
   DateTime dateTimeObject = DateTime(yyyy, mm, dd);
   return dateTimeObject;

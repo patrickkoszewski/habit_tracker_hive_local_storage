@@ -37,6 +37,13 @@ class MonthlySummary extends StatelessWidget {
           5: Color.fromARGB(100, 2, 179, 8),
           6: Color.fromARGB(120, 2, 179, 8),
           7: Color.fromARGB(150, 2, 179, 8),
+          8: Color.fromARGB(180, 2, 179, 8),
+          9: Color.fromARGB(220, 2, 179, 8),
+          10: Color.fromARGB(255, 2, 179, 8),
+        },
+        onClick: (value) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(value.toString())));
         },
       ),
     );
