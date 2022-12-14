@@ -35,5 +35,11 @@ class HabitDatabase {
   }
 
   //update database
-  void upadateDatabase() {}
+  void upadateDatabase() {
+    //update todays entry
+    _myBox.put(todaysDateFormatted(), todaysHabitList);
+
+    //update universal habit list in case it changed (new habit, edit habit, delete habit)
+    _myBox.put('CURRENT_HABIT_LIST', todaysHabitList);
+  }
 }
