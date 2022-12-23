@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:habit_tracker_hive_local_storage/datetime/date_time.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -5,7 +6,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 final _myBox = Hive.box('Habit_Database');
 
 class HabitDatabase {
-  List todaysHabitList = [];
+  List todaysHabitList = [
+    Text('Hello'),
+  ];
   Map<DateTime, int> heatMapDataSet = {};
 
   //create initial default data
@@ -22,7 +25,7 @@ class HabitDatabase {
   void loadData() {
     //if it's a new day, get habit list from database
     if (_myBox.get(todaysDateFormatted()) == null) {
-      todaysHabitList = _myBox.get('CuRRENT_HABIT_LIST');
+      todaysHabitList = _myBox.get('CURRENT_HABIT_LIST');
       //set all habits completed to false since it's a new day
       for (int i = 0; i < todaysHabitList.length; i++) {
         todaysHabitList[i][1] = false;
