@@ -32,7 +32,7 @@ class _HeatMapPageState extends State<HeatMapPage> {
     //update the database
     db.upadateDatabase();
     QuoteService().getRandomQuote().then((value) => setState(() {
-          _randomQuote = value as Quote;
+          _randomQuote = value;
           _isLoading = false;
         }));
     super.initState();
