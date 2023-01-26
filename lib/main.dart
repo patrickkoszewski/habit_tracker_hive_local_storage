@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker_hive_local_storage/pages/home_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
-import 'pages/home_page.dart';
 
 void main() async {
   //initialize hive
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
-      theme: ThemeData(primarySwatch: Colors.orange),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
     );
   }
 }
