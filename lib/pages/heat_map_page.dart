@@ -48,8 +48,8 @@ class _HeatMapPageState extends State<HeatMapPage> {
       body: Center(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
+            const Padding(
+              padding: EdgeInsets.all(20.0),
               child: SizedBox(
                 child: Text(
                   'Keep track of your progress with heat map',

@@ -9,14 +9,14 @@ class HabitGuidePage extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Container(
+      child: SizedBox(
         height: 500,
         width: 500,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Co to jest to Pomodoro?',
+              'Jak ważne są nawyki?',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,

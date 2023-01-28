@@ -9,7 +9,7 @@ class PomodoroGuidePage extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Container(
+      child: SizedBox(
         height: 500,
         width: 500,
         child: Column(

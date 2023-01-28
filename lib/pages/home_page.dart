@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker_hive_local_storage/pages/habit_page.dart';
 import 'package:habit_tracker_hive_local_storage/pages/pomodoro_page.dart';
-import 'package:habit_tracker_hive_local_storage/pages/profile_page.dart';
 import 'package:habit_tracker_hive_local_storage/pages/heat_map_page.dart';
+import 'package:habit_tracker_hive_local_storage/widget/habit_guide.dart';
+import 'package:habit_tracker_hive_local_storage/widget/heatmap_guide.dart';
 import 'package:habit_tracker_hive_local_storage/widget/pomodoro_guide.dart';
 // import 'package:habit_tracker_hive_local_storage/pages/timer.dart';
 
@@ -15,12 +16,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static List<Widget> _widgetOptions = <Widget>[
+  //static const TextStyle optionStyle =
+  //  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  final List<Widget> _guideOptions = <Widget>[
+    const PomodoroGuidePage(),
+    const HabitGuidePage(),
+    const HeatMapGuidePage(),
+  ];
+  final List<Widget> _widgetOptions = <Widget>[
     PomodoroPage(),
-    HabitPage(),
-    HeatMapPage(),
+    const HabitPage(),
+    const HeatMapPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -46,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return PomodoroGuidePage();
+                    return _guideOptions.elementAt(_selectedIndex);
                   },
                 );
               },
