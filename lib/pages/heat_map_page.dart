@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker_hive_local_storage/components/month_summary.dart';
 import 'package:habit_tracker_hive_local_storage/data/habit_database.dart';
+import 'package:habit_tracker_hive_local_storage/widget/random_quote.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class HeatMapPage extends StatefulWidget {
@@ -13,6 +14,7 @@ class HeatMapPage extends StatefulWidget {
 class _HeatMapPageState extends State<HeatMapPage> {
   HabitDatabase db = HabitDatabase();
   final _myBox = Hive.box('Habit_Database');
+  Quote _randomQuote = Quote(quote: '', author: '');
 
   @override
   void initState() {
@@ -28,7 +30,9 @@ class _HeatMapPageState extends State<HeatMapPage> {
 
     //update the database
     db.upadateDatabase();
-
+    QuoteService().getRandomQuote().then((value) => setState(() {
+          _randomQuote = value as Quote;
+        }));
     super.initState();
   }
 
@@ -64,6 +68,44 @@ class _HeatMapPageState extends State<HeatMapPage> {
               child: MonthlySummary(
                   datasets: db.heatMapDataSet,
                   startDate: _myBox.get('START_DATE')),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.yellow,
+                  borderRadius: BorderRadius.circular(20)),
+              height: 140,
+              width: 500,
+              margin: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      '"' + _randomQuote.quote + '"',
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '~ ' + _randomQuote.author,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontStyle: FontStyle.italic,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
