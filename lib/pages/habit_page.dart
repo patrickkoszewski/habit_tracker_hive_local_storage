@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker_hive_local_storage/components/month_summary.dart';
+// import 'package:habit_tracker_hive_local_storage/components/month_summary.dart';
 import 'package:habit_tracker_hive_local_storage/components/my_alert_box.dart';
 import 'package:habit_tracker_hive_local_storage/data/habit_database.dart';
 import 'package:hive_flutter/hive_flutter.dart';

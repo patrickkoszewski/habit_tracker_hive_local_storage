@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracker_hive_local_storage/pages/habit_page.dart';
 import 'package:habit_tracker_hive_local_storage/pages/pomodoro_page.dart';
 import 'package:habit_tracker_hive_local_storage/pages/profile_page.dart';
-import 'package:habit_tracker_hive_local_storage/pages/test_page.dart';
-import 'package:habit_tracker_hive_local_storage/pages/timer.dart';
+import 'package:habit_tracker_hive_local_storage/pages/heat_map_page.dart';
+import 'package:habit_tracker_hive_local_storage/widget/pomodoro_guide.dart';
+// import 'package:habit_tracker_hive_local_storage/pages/timer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,9 +18,9 @@ class _HomePageState extends State<HomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
+    PomodoroPage(),
     HabitPage(),
     HeatMapPage(),
-    PomodoroPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -35,21 +36,35 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('Own Your Habit\'s'),
+            Text(
+              'Own Your Habit\'s',
+              style: TextStyle(color: Colors.grey[800]),
+            ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()),
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return PomodoroGuidePage();
+                  },
                 );
               },
+              // onTap: () {
+              //   Navigator.push(
+              //     context,
+              //     MaterialPageRoute(builder: (context) => const PomodoroGuidePage()),
+              //   );
+              // },
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
                   child: Container(
                     height: 40,
                     width: 40,
                     color: Colors.amber[200],
-                    child: const Icon(Icons.person),
+                    child: const Icon(
+                      Icons.question_mark,
+                      size: 20,
+                    ),
                   )),
             ),
           ],
@@ -61,16 +76,16 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            icon: Icon(Icons.timelapse),
+            label: 'Pomodoro',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Habits',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.map),
             label: 'HeatMap',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.timelapse),
-            label: 'Time',
           ),
         ],
         currentIndex: _selectedIndex,

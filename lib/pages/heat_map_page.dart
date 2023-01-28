@@ -56,7 +56,7 @@ class _HeatMapPageState extends State<HeatMapPage> {
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.amber),
+                      color: Colors.white),
                 ),
               ),
             ),
