@@ -35,7 +35,7 @@ class HabitTile extends StatelessWidget {
             //delete option
             SlidableAction(
               onPressed: deleteTapped,
-              backgroundColor: Colors.red.shade400,
+              backgroundColor: Colors.red.shade900,
               icon: Icons.delete,
               borderRadius: BorderRadius.circular(12),
             ),
@@ -44,7 +44,7 @@ class HabitTile extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: Colors.grey[100],
+            color: Colors.grey[300],
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(

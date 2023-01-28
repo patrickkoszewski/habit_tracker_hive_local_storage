@@ -7,7 +7,7 @@ final _myBox = Hive.box('Habit_Database');
 
 class HabitDatabase {
   List todaysHabitList = [
-    Text('Hello'),
+    const Text('Hello'),
   ];
   Map<DateTime, int> heatMapDataSet = {};
 
@@ -102,7 +102,6 @@ class HabitDatabase {
       };
 
       heatMapDataSet.addEntries(percentForEachDay.entries);
-      print(heatMapDataSet);
     }
   }
 }

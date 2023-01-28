@@ -119,7 +119,7 @@ class _HabitPageState extends State<HabitPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.grey[800],
       floatingActionButton: MyFloatingActionButton(
         onPressed: createNewHabit,
       ),

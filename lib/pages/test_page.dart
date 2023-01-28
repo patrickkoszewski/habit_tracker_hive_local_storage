@@ -44,22 +44,23 @@ class _HeatMapPageState extends State<HeatMapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.grey[800],
       body: Center(
         child: Column(
           children: [
-            const Padding(
+            Padding(
               padding: const EdgeInsets.all(20.0),
               child: SizedBox(
                 child: Text(
                   'Keep track of your progress with heat map',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.amber),
                 ),
               ),
             ),
-            Container(
-              width: 340,
-              color: Colors.deepPurple,
+            Expanded(
               child: MonthlySummary(
                   datasets: db.heatMapDataSet,
                   startDate: _myBox.get('START_DATE')),

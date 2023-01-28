@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker_hive_local_storage/pages/habit_page.dart';
+import 'package:habit_tracker_hive_local_storage/pages/pomodoro_page.dart';
 import 'package:habit_tracker_hive_local_storage/pages/profile_page.dart';
 import 'package:habit_tracker_hive_local_storage/pages/test_page.dart';
 import 'package:habit_tracker_hive_local_storage/pages/timer.dart';
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   static List<Widget> _widgetOptions = <Widget>[
     HabitPage(),
     HeatMapPage(),
-    TimerPage(),
+    PomodoroPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -47,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     height: 40,
                     width: 40,
-                    color: Colors.deepPurple[200],
+                    color: Colors.amber[200],
                     child: const Icon(Icons.person),
                   )),
             ),
@@ -73,7 +74,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.deepPurple[800],
+        backgroundColor: Colors.amber,
+        unselectedItemColor: Colors.grey[800],
+        selectedItemColor: Colors.red[900],
         onTap: _onItemTapped,
       ),
     );
