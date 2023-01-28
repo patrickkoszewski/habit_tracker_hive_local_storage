@@ -44,7 +44,7 @@ class _HeatMapPageState extends State<HeatMapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[800],
+      backgroundColor: Colors.grey[700],
       body: Center(
         child: Column(
           children: [

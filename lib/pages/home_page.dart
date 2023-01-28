@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[700],
       appBar: AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -60,10 +61,11 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     height: 40,
                     width: 40,
-                    color: Colors.amber[200],
+                    color: Colors.grey[700],
                     child: const Icon(
                       Icons.question_mark,
                       size: 20,
+                      color: Colors.yellow,
                     ),
                   )),
             ),
@@ -89,8 +91,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        backgroundColor: Colors.amber,
-        unselectedItemColor: Colors.grey[800],
+        backgroundColor: Colors.yellow,
+        unselectedItemColor: Colors.grey[700],
         selectedItemColor: Colors.red[900],
         onTap: _onItemTapped,
       ),
