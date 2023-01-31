@@ -5,7 +5,6 @@ import 'package:habit_tracker_hive_local_storage/pages/heat_map_page.dart';
 import 'package:habit_tracker_hive_local_storage/widget/habit_guide.dart';
 import 'package:habit_tracker_hive_local_storage/widget/heatmap_guide.dart';
 import 'package:habit_tracker_hive_local_storage/widget/pomodoro_guide.dart';
-// import 'package:habit_tracker_hive_local_storage/pages/timer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
